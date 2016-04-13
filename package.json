@@ -1,0 +1,17 @@
+{
+  "name": "smachine",
+  "version": "0.0.1",
+  "description": "Statemachine run simple",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/**/*.js -t 1000"
+  },
+  "author": "Dennis Ahaus",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "expect": "=1.15.2",
+    "mocha": "=2.4.5",
+    "sinon": "=1.17.3"
+  }
+}
