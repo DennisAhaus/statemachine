@@ -22,7 +22,7 @@ Content:
 
 ```js
 
-var StateMachine = require("statemachine").StateMachine;
+var StateMachine = require("smachine").StateMachine;
 
 var machine = new StateMachine();
 
