@@ -1,3 +1,3 @@
-export { SyncDispatcher } from './lib/syncDispatcher';
-export { SsyncDispatcher } from './lib/asyncDispatcher';
-export { StateMachine } from './lib/statemachine';
+exports.SyncDispatcher = require('./lib/syncDispatcher');
+exports.AsyncDispatcher = require('./lib/asyncDispatcher');
+exports.StateMachine = require('./lib/statemachine');
