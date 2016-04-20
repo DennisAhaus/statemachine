@@ -10,16 +10,16 @@ Content:
 
 - [Usage](#usage)
 - [API](#api)
-'-- [setAsync](#setasync)
-'-- [addTransition](#addtransition)
-'-- [addState](#addstate)
-'-- [setContext](#setcontext)
-'-- [addStateMachine](#addstatemachine)
+ - [setAsync](#setasync)
+ - [addTransition](#addtransition)
+ - [addState](#addstate)
+ - [setContext](#setcontext)
+ - [addStateMachine](#addstatemachine)
 - [Events](#events)
-'-- [final](#final)
-'-- [error](#error)
+ - [final](#final)
+ - [error](#error)
 - [Errorhandling](#errorhandling)
-'-- [Test](#test)
+ - [Test](#test)
 
 ## Usage
 
