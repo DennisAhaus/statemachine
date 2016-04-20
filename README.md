@@ -1,4 +1,4 @@
-# Statemachine
+# Statemachine  [![Build Status](https://travis-ci.org/DennisAhaus/statemachine.svg?branch=master)](https://travis-ci.org/DennisAhaus/statemachine)
 
 The only statemachine where rules and states are fully handled independent.
 It is also possible to add a statemachine to another statemachine and transit
