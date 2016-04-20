@@ -1,6 +1,6 @@
 {
   "name": "smachine",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Statemachine run simple",
   "main": "index.js",
   "scripts": {
