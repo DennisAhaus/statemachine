@@ -1,22 +1,25 @@
 # Statemachine
 
 The only statemachine where rules and states are fully handled independent.
-It is also possible to add a statemachine to another statemachine and transit
-step to step from machine to machine. Each machine can be used in sync or async
-mode.
+It is also possible to add a statemachine to another statemachine, run
+in async or sync mode, transit form step to step from machine to machine while
+link different statemachines together. This helps dividing big problems into
+smaller ones which can be solved much easier.
 
 Content:
 
-1. [Usage](#usage)
-1. [API](#api)
-  1. [addTransition](#addtransition)
-  1. [addState](#addstate)
-  1. [setContext](#setcontext)
-1. [Events](#events)
-  1. [final](#final)
-  1. [final](#error)
-1. [Errorhandling](#errorhandling)
-1. [Test](#test)
+- [Usage](#usage)
+- [API](#api)
+'-- [setAsync](#setasync)
+'-- [addTransition](#addtransition)
+'-- [addState](#addstate)
+'-- [setContext](#setcontext)
+'-- [addStateMachine](#addstatemachine)
+- [Events](#events)
+'-- [final](#final)
+'-- [error](#error)
+- [Errorhandling](#errorhandling)
+'-- [Test](#test)
 
 ## Usage
 
@@ -52,6 +55,48 @@ machine.run();
 
 ## API
 
+##### setAsync
+
+Signature: `.setAsync( true | false )`
+
+Defines if the statemachine should run in sync or async mode. Async mode is the default.
+
+Here is an exmaple how the statemachine works in async (default) mode:
+```js
+
+// Async mode
+var isTested = true;
+
+new StateMachine()
+  .setAsync(true) // optional -> async true is default
+  .addTransition(...)
+  .addState(...)
+  on("final", function () {
+    isTested = false;
+  })
+  .run();
+
+console.log(isTested) // outputs true
+```
+
+Here is an exmaple how the statemachine works in sync (default) mode:
+```js
+
+// Async mode
+var isTested = true;
+
+new StateMachine()
+  .setAsync(false) // statemachine should run in sync mode
+  .addTransition(...)
+  .addState(...)
+  on("final", function () {
+    isTested = false;
+  })
+  .run();
+
+console.log(isTested) // outputs false
+```
+
 ##### addTransition
 
 Signature: `.addTransition( object | array of objects )`
@@ -81,7 +126,7 @@ Adds a state to the statemachine. The name of the state is used in transitions t
 identify the state in dependency of the outcome of each state.
 
 ```js
-.addStrate("myState", function (next) {
+.addState("myState", function (next) {
     next(null, "yourOutcome")
 });
 ```
@@ -101,6 +146,30 @@ the second parameter of the stats's function is the reference to this context ob
 .addState("myState", function (next, context) {
     context.name // "John"
 });
+```
+
+##### addStateMachine
+
+Signature: `.addStateMachine( maschine )`
+
+Adds a statemachine to another statemachine. Now it is possible to switch from
+maschineA.step1 to maschineB.step2 and backwards. This is done by a special
+notation inside transitions.
+
+```js
+var m1 = new StateMachine("m1")
+  .addTransition(...)
+  .addState(...)
+  .run();
+
+var m2 = new StateMachine("m2")
+  .addTransition(...)
+  .addState(...)
+  .run();
+
+m1.addStateMachine(m2);
+
+m1.run();
 ```
 
 ## Events

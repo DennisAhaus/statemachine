@@ -6,7 +6,7 @@ var expect = require("expect"),
 
 describe(__filename, function () {
 
-  
+
     /**
      *
      */
