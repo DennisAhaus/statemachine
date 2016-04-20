@@ -1,10 +1,10 @@
 {
   "name": "smachine",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Statemachine run simple",
   "main": "index.js",
   "scripts": {
-    "lint":"./node_modules/eslint/bin/eslint.js .",
+    "lint": "./node_modules/eslint/bin/eslint.js .",
     "test": "./node_modules/.bin/mocha test/**/*.js -t 1000"
   },
   "author": "Dennis Ahaus",
@@ -12,11 +12,17 @@
     "type": "git",
     "url": "https://github.com/DennisAhaus/statemachine"
   },
-  "keywords": ["statemachine","fsm", "states", "final state machine", "simple"],
+  "keywords": [
+    "statemachine",
+    "fsm",
+    "states",
+    "final state machine",
+    "simple"
+  ],
   "license": "MIT",
   "dependencies": {},
-  "bugs":{
-    "url":"https://github.com/DennisAhaus/statemachine/issues"
+  "bugs": {
+    "url": "https://github.com/DennisAhaus/statemachine/issues"
   },
   "homepage": "http://dennisahaus.github.io/statemachine",
   "devDependencies": {
