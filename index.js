@@ -1,5 +1,3 @@
-"use strict";
-
-exports.StateMachine = require("./lib/statemachine");
-exports.SyncDispatcher = require("./lib/syncDispatcher");
-exports.AsyncDispatcher = require("./lib/asyncDispatcher");
+exports.SyncDispatcher = require('./lib/syncDispatcher');
+exports.AsyncDispatcher = require('./lib/asyncDispatcher');
+exports.StateMachine = require('./lib/statemachine');

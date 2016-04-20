@@ -4,12 +4,26 @@
   "description": "Statemachine run simple",
   "main": "index.js",
   "scripts": {
+    "lint":"./node_modules/eslint/bin/eslint.js .",
     "test": "./node_modules/.bin/mocha test/**/*.js -t 1000"
   },
   "author": "Dennis Ahaus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DennisAhaus/statemachine"
+  },
+  "keywords": ["statemachine","fsm", "states", "final state machine", "simple"],
   "license": "MIT",
   "dependencies": {},
+  "bugs":{
+    "url":"https://github.com/DennisAhaus/statemachine/issues"
+  },
+  "homepage": "http://dennisahaus.github.io/statemachine",
   "devDependencies": {
+    "eslint": "=2.7.0",
+    "eslint-config-airbnb": "=7.0.0",
+    "eslint-plugin-jsx-a11y": "=0.6.2",
+    "eslint-plugin-react": "^4.3.0",
     "expect": "=1.15.2",
     "mocha": "=2.4.5",
     "sinon": "=1.17.3"
