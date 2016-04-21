@@ -2,9 +2,20 @@
 
 var expect = require("expect"),
     StateMachine = require("../").StateMachine,
+    Utils = require('./../lib/utils'),
     sinon = require("sinon");
 
 describe(__filename, function () {
+
+  let sandbox;
+
+  beforeEach(function () {
+    sandbox = sinon.sandbox.create();
+  })
+
+  afterEach(function () {
+    sandbox.verify();
+  })
 
 
     /**
@@ -325,6 +336,7 @@ describe(__filename, function () {
      *
      */
     it("Should add transition rule to statemachine", sinon.test(function () {
+
         var stateMachine = new StateMachine()
           .addTransition({
               from: "start",
@@ -347,8 +359,11 @@ describe(__filename, function () {
      */
     it("Should create statemachine", sinon.test(function () {
 
+      sandbox.mock(Utils).expects("getRandomInt").once().returns(123123123);
+
         var statemachine = new StateMachine();
         expect(statemachine).toBeA(StateMachine);
+        expect(statemachine.getName()).toBe("this123123123");
 
     }));
 
