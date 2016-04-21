@@ -18,8 +18,10 @@ Content:
 - [Events](#events)
  - [final](#final)
  - [error](#error)
-- [Errorhandling](#errorhandling)
+ - [Errorhandling](#errorhandling)
  - [Test](#test)
+ - [Issues](#issues)
+ - [Support](#support)
 
 ## Usage
 
@@ -154,17 +156,34 @@ Signature: `.addStateMachine( maschine )`
 
 Adds a statemachine to another statemachine. Now it is possible to switch from
 maschineA.step1 to maschineB.step2 and backwards. This is done by a special
-notation inside transitions.
+notation inside addTransition.
 
 ```js
-var m1 = new StateMachine("m1")
-  .addTransition(...)
-  .addState(...)
+var m1 = new StateMachine("m1") // Each statemachine MUST have a name
+  .addTransition({
+    from: "start",
+    to: {
+      outcome1: "m2:step1"      // This leads machine m1 transit to m2:step1
+    }
+  })
+  .addState("start", function (next) {
+    next(null, "outcome1");
+  })
+  .addState("final", function (next) {
+    next();
+  })
   .run();
 
 var m2 = new StateMachine("m2")
-  .addTransition(...)
-  .addState(...)
+  .addTransition({
+    from: "step1",
+    to: {
+      step1Outcome: "m1:final"   // This leads machine m2 to transit to m1:final
+    }
+  })
+  .addState("step1", function (next) {
+    next(null, "step1Outcome");
+  })
   .run();
 
 m1.addStateMachine(m2);
@@ -216,3 +235,16 @@ state's `next(new Error(...))` method.
 ## Test
 
 There are no dependencies. Just run `npm test`
+
+## Issues
+
+If you have any problems please create an issue at
+https://github.com/DennisAhaus/statemachine/issues
+
+## Support
+
+If you want to get support or just discuss an idea please write an
+email to the author and get in invitation to
+slack https://hackers-corner.slack.com/#js-smachine
+
+See you soon...
