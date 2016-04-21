@@ -18,8 +18,10 @@ Content:
 - [Events](#events)
  - [final](#final)
  - [error](#error)
-- [Errorhandling](#errorhandling)
+ - [Errorhandling](#errorhandling)
  - [Test](#test)
+ - [Issues](#issues)
+ - [Support](#support)
 
 ## Usage
 
@@ -233,3 +235,16 @@ state's `next(new Error(...))` method.
 ## Test
 
 There are no dependencies. Just run `npm test`
+
+## Issues
+
+If you have any problems please create an issue at
+https://github.com/DennisAhaus/statemachine/issues
+
+## Support
+
+If you want to get support or just discuss an idea please write an
+email to the author and get in invitation to
+slack https://hackers-corner.slack.com/#js-smachine
+
+See you soon...
